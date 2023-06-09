@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Canvas } from "@react-three/fiber";
+import Background from "./components/background";
+import Ground from "./components/ground";
+import "./index.css";
+import { OrbitControls } from "@react-three/drei";
+import Path from "./components/path";
+import Ball from "./components/ball";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="canvas-container">
+      <Canvas style={{ backgroundColor: "blue" }}>
+        <OrbitControls />
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} intensity={1} />
+        <Ball />
+        <Path />
+        <Ground />
+      </Canvas>
     </div>
   );
 }
